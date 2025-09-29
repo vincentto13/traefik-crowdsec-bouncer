@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 )
 
 /*
@@ -30,7 +31,7 @@ func RequiredEnv(varName string) string {
 		if err != nil {
 			log.Fatalf("Could not read env var from file %s (Error: %v). Exiting", envVarFileName, err)
 		}
-		return string(envVarFromFile)
+		return strings.TrimSpace(string(envVarFromFile))
 	}
 	return envVar
 }
